@@ -27,7 +27,7 @@ export const App = () => {
 
     contacts.some(({ name }) => name.toLowerCase() === contact.name.toLowerCase())
       ? alert(`${contact.name.toLowerCase()} is already in your contacts`)
-      : setContacts(() => [...contacts, createContact]); 
+      : setContacts((prev) => [...prev, createContact]); 
   };
 
   const handleChangeFilter = ({ currentTarget: { value } }) => {
@@ -40,7 +40,7 @@ export const App = () => {
   };
 
   const removeContact = id => {
-    setContacts(() => contacts.filter(contact => contact.id !== id))
+    setContacts((prev) => prev.filter(contact => contact.id !== id))
   };
   
   
